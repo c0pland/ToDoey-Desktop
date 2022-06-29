@@ -735,7 +735,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="OkO-4S-NX9">
+                                                        <tableCellView identifier="importantCell" id="OkO-4S-NX9">
                                                             <rect key="frame" x="8" y="0.0" width="38" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -788,6 +788,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="hIP-ts-38L"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="eFU-bh-iNa"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -846,6 +850,7 @@
                     <connections>
                         <outlet property="addButton" destination="hHg-4G-FeE" id="v0o-XZ-9AV"/>
                         <outlet property="importantCheckbox" destination="gFO-7V-jrX" id="cwa-W1-XEq"/>
+                        <outlet property="tableView" destination="hSZ-ky-nFQ" id="7N2-Mb-a7r"/>
                         <outlet property="taskField" destination="Yhj-Zo-m3d" id="gpA-gE-5Wo"/>
                     </connections>
                 </viewController>

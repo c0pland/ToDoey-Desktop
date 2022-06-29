@@ -12,6 +12,7 @@
 		2B54F74E28642AC300BE9985 /* ToDoey_Desktop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B54F74C28642AC300BE9985 /* ToDoey_Desktop.xcdatamodeld */; };
 		2B54F75028642AC500BE9985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54F74F28642AC500BE9985 /* Assets.xcassets */; };
 		2B54F75328642AC500BE9985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54F75128642AC500BE9985 /* Main.storyboard */; };
+		2B741508286C111500C4BEB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B741507286C111500C4BEB7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2B54F74F28642AC500BE9985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B54F75228642AC500BE9985 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B54F75428642AC500BE9985 /* ToDoey_Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoey_Desktop.entitlements; sourceTree = "<group>"; };
+		2B741507286C111500C4BEB7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,47 @@
 		2B54F74728642AC300BE9985 /* ToDoey Desktop */ = {
 			isa = PBXGroup;
 			children = (
-				2B54F74828642AC300BE9985 /* AppDelegate.swift */,
-				2B54F74A28642AC300BE9985 /* ViewController.swift */,
-				2B54F74F28642AC500BE9985 /* Assets.xcassets */,
-				2B54F75128642AC500BE9985 /* Main.storyboard */,
 				2B54F75428642AC500BE9985 /* ToDoey_Desktop.entitlements */,
-				2B54F74C28642AC300BE9985 /* ToDoey_Desktop.xcdatamodeld */,
+				2B74150A286C116C00C4BEB7 /* Controllers */,
+				2B74150C286C118E00C4BEB7 /* Misc */,
+				2B741509286C115C00C4BEB7 /* Views */,
+				2B74150B286C118400C4BEB7 /* Models */,
 			);
 			path = "ToDoey Desktop";
+			sourceTree = "<group>";
+		};
+		2B741509286C115C00C4BEB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B54F75128642AC500BE9985 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2B74150A286C116C00C4BEB7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B54F74828642AC300BE9985 /* AppDelegate.swift */,
+				2B54F74A28642AC300BE9985 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2B74150B286C118400C4BEB7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B741507286C111500C4BEB7 /* Constants.swift */,
+				2B54F74C28642AC300BE9985 /* ToDoey_Desktop.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B74150C286C118E00C4BEB7 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				2B54F74F28642AC500BE9985 /* Assets.xcassets */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +172,7 @@
 				2B54F74E28642AC300BE9985 /* ToDoey_Desktop.xcdatamodeld in Sources */,
 				2B54F74B28642AC300BE9985 /* ViewController.swift in Sources */,
 				2B54F74928642AC300BE9985 /* AppDelegate.swift in Sources */,
+				2B741508286C111500C4BEB7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
