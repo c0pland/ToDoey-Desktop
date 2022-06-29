@@ -8,14 +8,17 @@
 import Cocoa
 import CoreData
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var importantCheckbox: NSButton!
     @IBOutlet weak var taskField: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var addButton: NSButton!
     var tasks: [Task] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         getTasks()
     }
     
@@ -49,19 +52,31 @@ class ViewController: NSViewController {
             getTasks()
         }
     }
-}
-// MARK: - TableView
-extension ViewController: NSTableViewDataSource, NSTabViewDelegate {
+    // MARK: - TableView
     func numberOfRows(in tableView: NSTableView) -> Int {
         return tasks.count
     }
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(Constants.importantCellID), owner: self) as? NSTableCellView {
-            cell.textField?.stringValue = "Hello"
-            return cell
+        func tableView(_ tableView: NSTableView ,viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: Constants.importantCellID), owner: self) as? NSTableCellView {
+                let task = tasks[row]
+                print("func triggered")
+                cell.textField?.stringValue = task.name ?? "Error getting the name"
+                return cell
+            }
+            return nil
         }
-        return nil
-    }
+//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+//        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(Constants.importantCellID), owner: self) as? NSTableCellView {
+//            let task = tasks[row]
+//            cell.textField?.stringValue = task.name ?? "Error getting the name"
+//            return cell
+//        }
+//        return nil
+//    }
+    
+    //    func tableView(_ tableView: NSTableView, objec tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    //
+    //    }
 }
 
