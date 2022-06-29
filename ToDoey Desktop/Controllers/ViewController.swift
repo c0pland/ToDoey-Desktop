@@ -57,26 +57,23 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         return tasks.count
     }
     
-        func tableView(_ tableView: NSTableView ,viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView ,viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let task = tasks[row]
+        if tableColumn?.identifier.rawValue == Constants.importantColumnID {
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: Constants.importantCellID), owner: self) as? NSTableCellView {
-                let task = tasks[row]
-                print("func triggered")
+                if task.isImportant {
+                    cell.textField?.stringValue = "❗️"
+                } else {
+                    cell.textField?.stringValue = ""
+                }
+                return cell
+            }
+        } else {
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: Constants.taskCellID), owner: self) as? NSTableCellView {
                 cell.textField?.stringValue = task.name ?? "Error getting the name"
                 return cell
             }
-            return nil
         }
-//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-//        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(Constants.importantCellID), owner: self) as? NSTableCellView {
-//            let task = tasks[row]
-//            cell.textField?.stringValue = task.name ?? "Error getting the name"
-//            return cell
-//        }
-//        return nil
-//    }
-    
-    //    func tableView(_ tableView: NSTableView, objec tableColumn: NSTableColumn?, row: Int) -> NSView? {
-    //
-    //    }
+        return nil
+    }
 }
-
