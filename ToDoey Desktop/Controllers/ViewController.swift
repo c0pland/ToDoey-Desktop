@@ -13,6 +13,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBOutlet weak var taskField: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var addButton: NSButton!
+    @IBOutlet weak var deleteButton: NSButton!
+    
     var tasks: [Task] = []
     
     override func viewDidLoad() {
@@ -52,6 +54,21 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             getTasks()
         }
     }
+    
+    @IBAction func deleteClicked(_ sender: Any) {
+        let taskToDelete = tasks[tableView.selectedRow]
+        if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            context.delete(taskToDelete)
+            do {
+                try (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.save()
+            } catch {
+                print("error saving, \(error)")
+            }
+            tasks.remove(at: tableView.selectedRow)
+            getTasks()
+            deleteButton.isHidden = true
+        }
+    }
     // MARK: - TableView
     func numberOfRows(in tableView: NSTableView) -> Int {
         return tasks.count
@@ -75,5 +92,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             }
         }
         return nil
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        deleteButton.isHidden = false
     }
 }

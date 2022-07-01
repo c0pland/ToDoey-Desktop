@@ -795,7 +795,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.42105263157894735" horizontal="YES" id="q1j-qQ-SfE">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="q1j-qQ-SfE">
                                     <rect key="frame" x="1" y="228" width="234" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -845,10 +845,22 @@
                                     <action selector="addClicked:" target="XfG-lQ-9wD" id="MuO-i1-1Da"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97u-gp-n1C">
+                                <rect key="frame" x="257" y="22" width="209" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ENT-Yb-dyK">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteClicked:" target="XfG-lQ-9wD" id="IbK-UE-Zb8"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="hHg-4G-FeE" id="6Yl-v9-f82"/>
+                        <outlet property="deleteButton" destination="97u-gp-n1C" id="cFn-nJ-qVX"/>
                         <outlet property="importantCheckbox" destination="gFO-7V-jrX" id="cwa-W1-XEq"/>
                         <outlet property="tableView" destination="hSZ-ky-nFQ" id="7N2-Mb-a7r"/>
                         <outlet property="taskField" destination="Yhj-Zo-m3d" id="gpA-gE-5Wo"/>
